@@ -5,13 +5,15 @@ function App() {
   const [userHash, setUserHash] = useState("Generating...");
 
   useEffect(() => {
-    const getFingerprint = async () => {
+    const run = async () => {
       const fingerprint = new SimpleFingerprint();
-      const hash = await fingerprint.getHash();
+      const hash = await fingerprint.sendToServer(
+        "https://fingerprint-server-niuu.onrender.com/api/fingerprint"
+      );
       setUserHash(hash);
     };
 
-    getFingerprint();
+    run();
   }, []);
 
   return (
