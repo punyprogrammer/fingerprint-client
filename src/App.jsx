@@ -264,7 +264,7 @@ function App() {
     const run = async () => {
       const fingerprint = new SimpleFingerprint();
       const hash = await fingerprint.sendToServer(
-        "http://localhost:4000/api/fingerprint"
+        "https://fingerprint-server-niuu.onrender.com/api/fingerprint"
       );
       setUserHash(hash);
     };
